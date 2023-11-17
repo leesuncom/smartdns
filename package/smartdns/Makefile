@@ -49,6 +49,7 @@ define Package/smartdns/conffiles
 /etc/smartdns/domain-block.list
 /etc/smartdns/domain-forwarding.list
 /etc/smartdns/up.sh
+/etc/smartdns/hosts.sh
 /etc/smartdns/cn.conf
 endef
 
@@ -62,6 +63,7 @@ define Package/smartdns/install
 	$(INSTALL_CONF) $(CURDIR)/conf/custom.conf $(1)/etc/smartdns/custom.conf
 	$(INSTALL_CONF) $(CURDIR)/conf/smartdns.conf $(1)/etc/config/smartdns
 	$(INSTALL_CONF) $(CURDIR)/conf/up.sh $(1)/etc/smartdns/up.sh
+        $(INSTALL_CONF) $(CURDIR)/conf/hosts.sh $(1)/etc/hosts.sh
 	$(INSTALL_CONF) $(CURDIR)/conf/cn.conf $(1)/etc/smartdns/cn.conf
 	$(INSTALL_CONF) $(CURDIR)/conf/domain-forwarding.list $(1)/etc/smartdns/domain-forwarding.list
 	$(INSTALL_CONF) $(CURDIR)/conf/domain-block.list $(1)/etc/smartdns/domain-block.list
