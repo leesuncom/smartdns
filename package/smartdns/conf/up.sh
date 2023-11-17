@@ -1,3 +1,11 @@
+#!/bin/sh
+sed -i '/# GitHub520 Host Start/,/# Github520 Host End/d' /etc/hosts
+curl https://raw.hellogithub.com/hosts >> /etc/hosts
+/etc/init.d/dnsmasq restart
+/etc/init.d/AdGuardHome restart
+/etc/init.d/mosdns restart
+/etc/init.d/smartdns restart
+
 rm /tmp/etc/smartdns/cn.conf    /tmp/etc/smartdns/domain-forwarding.list   /tmp/etc/smartdns/domain-block.list
 
 curl  "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/direct-list.txt"  >> /tmp/etc/smartdns/cn.conf
