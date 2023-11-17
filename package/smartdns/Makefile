@@ -49,7 +49,7 @@ define Package/smartdns/conffiles
 /etc/smartdns/domain-block.list
 /etc/smartdns/domain-forwarding.list
 /etc/smartdns/up.sh
-/etc/smartdns/hosts.sh
+/etc/hosts.sh
 /etc/smartdns/cn.conf
 endef
 
