@@ -1,17 +1,18 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
 #
 # Copyright (c) 2018-2023 Nick Peng (pymumu@gmail.com)
+# This is free software, licensed under the GNU General Public License v3.
+#
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=smartdns
-PKG_VERSION:=1.2023.42
+PKG_VERSION:=1.2023.41
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://www.github.com/pymumu/smartdns.git
-PKG_SOURCE_VERSION:=ed102cda03c56e9c63040d33d4a391b56491493e
-PKG_MIRROR_HASH:=366e98b92c3d22844ff5fc52c35f65c3b01e1b92fc9dc14c474823f0cc3ed11a
+PKG_MIRROR_HASH:=skip
+PKG_SOURCE_VERSION:=60a3719ec739be2cc1e11724ac049b09a75059cb
 
 PKG_MAINTAINER:=Nick Peng <pymumu@gmail.com>
 PKG_LICENSE:=GPL-3.0-or-later
@@ -40,8 +41,8 @@ endef
 
 define Package/smartdns/conffiles
 /etc/smartdns/conf.d/anti-ad-for-smartdns.conf
-/etc/smartdns/domain-set/gfw.txt
-/etc/smartdns/domain-set/gfwlist_domain.txt
+/etc/smartdns/domain-set/fwlist.txt
+/etc/smartdns/domain-set/chinalist.txt
 /etc/config/smartdns
 /etc/smartdns/address.conf
 /etc/smartdns/blacklist-ip.conf
@@ -66,8 +67,8 @@ define Package/smartdns/install
 	$(INSTALL_CONF) $(CURDIR)/conf/domain-forwarding.list $(1)/etc/smartdns/domain-forwarding.list
 	$(INSTALL_CONF) $(CURDIR)/conf/domain-block.list $(1)/etc/smartdns/domain-block.list
 	$(INSTALL_CONF) $(CURDIR)/conf/conf.d/anti-ad-for-smartdns.conf $(1)/etc/smartdns/conf.d/anti-ad-for-smartdns.conf
-	$(INSTALL_CONF) $(CURDIR)/conf/domain-set/gfw.txt $(1)/etc/smartdns/domain-set/gfw.txt
-	$(INSTALL_CONF) $(CURDIR)/conf/domain-set/gfwlist_domain.txt $(1)/etc/smartdns/domain-set/gfwlist_domain.txt
+	$(INSTALL_CONF) $(CURDIR)/conf/domain-set/fwlist.txt $(1)/etc/smartdns/domain-set/fwlist.txt
+	$(INSTALL_CONF) $(CURDIR)/conf/domain-set/chinalist.txt $(1)/etc/smartdns/domain-set/chinalist.txt
 endef
 
 $(eval $(call BuildPackage,smartdns))
