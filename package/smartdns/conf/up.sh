@@ -15,20 +15,20 @@ rm /etc/smartdns/cn.conf
 sed "s/^full://g;s/^regexp:.*$//g;s/^/nameserver \//g;s/$/\/cn/g" -i /tmp/etc/smartdns/cn.conf
 cat /tmp/etc/smartdns/cn.conf > /etc/smartdns/cn.conf
 
-curl  "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/proxy-list.txt"  >> /tmp/etc/smartdns/domain-forwarding.list
-curl  "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/gfw.txt"        >> /tmp/etc/smartdns/domain-forwarding.list
-curl  "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/greatfire.txt"  >> /tmp/etc/smartdns/domain-forwarding.list
+curl  "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/proxy-list.txt"  >> /tmp/etc/smartdns/gfwlist.txt
+curl  "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/gfw.txt"        >> /tmp/etc/smartdns/gfwlist.txt
+curl  "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/greatfire.txt"  >> /tmp/etc/smartdns/gfwlist.txt
 
-rm /etc/smartdns/domain-forwarding.list
-sed "s/^full://g;s/^regexp:.*$//g;s/^/nameserver \//g;s/$/\/gfwlist/g" -i /tmp/etc/smartdns/domain-forwarding.list
-cat /tmp/etc/smartdns/domain-forwarding.list > /etc/smartdns/domain-forwarding.list
+rm /etc/smartdns/gfwlist.txt
+sed "s/^full://g;s/^regexp:.*$//g;s/^/nameserver \//g;s/$/\/gfwlist/g" -i /tmp/etc/smartdns/gfwlist.txt
+cat /tmp/etc/smartdns/gfwlist.txt > /etc/smartdns/gfwlist.txt
 
-curl  "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/reject-list.txt"  >> /tmp/etc/smartdns/domain-block.list
-curl  "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/win-spy.txt"  >> /tmp/etc/smartdns/domain-block.list
-curl  "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/win-extra.txt"  >> /tmp/etc/smartdns/domain-block.list
+curl  "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/reject-list.txt"  >> /tmp/etc/smartdns/ipv4list.tx
+curl  "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/win-spy.txt"  >> /tmp/etc/smartdns/ipv4list.tx
+curl  "https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/win-extra.txt"  >> /tmp/etc/smartdns/ipv4list.tx
 
-rm /etc/smartdns/domain-block.list
-sed "s/^full://g;s/^regexp:.*$//g;s/^/address \//g;s/$/\/#/g" -i /tmp/etc/smartdns/domain-block.list
-cat /tmp/etc/smartdns/domain-block.list > /etc/smartdns/domain-block.list
+rm /etc/smartdns/ipv4list.tx
+sed "s/^full://g;s/^regexp:.*$//g;s/^/address \//g;s/$/\/#/g" -i /tmp/etc/smartdns/ipv4list.tx
+cat /tmp/etc/smartdns/ipv4list.tx > /etc/smartdns/ipv4list.tx
 
 /etc/init.d/smartdns restart
