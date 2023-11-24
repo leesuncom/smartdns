@@ -90,10 +90,8 @@ conf-file /etc/smartdns/cn.conf
 # domain-rules /domain-set:domain-forwarding-file/  -speed-check-mode none -address #6 -ipset gfwlist -nameserver gfwlist
 # domain-set -name domain-forwarding-list -file /etc/smartdns/domain-forwarding.list
 # domain-rules /domain-set:domain-forwarding-list/  -speed-check-mode none -address #6 -ipset gfwlist -nameserver gfwlist
-# domain-set -name domain-block-file -file '/etc/smartdns/domain-block.list'
-# domain-rules /domain-set:domain-block-file/ -group block
-# domain-set -name domain-block-list -file /etc/smartdns/domain-block.list
-# domain-rules /domain-set:domain-block-list/ --address #
+domain-set -name domain-block-list -file /etc/smartdns/domain-block.list
+domain-rules /domain-set:domain-block-list/ --address #
 
 #这里要将分流解析出的IP写入gfwlist，因为passwall依赖这个组的ip列表进行科学上网
 # domain-set -name domain-rule-list-cfg027b82 -file /etc/smartdns/domain-set/gfwlist_domain.txt
