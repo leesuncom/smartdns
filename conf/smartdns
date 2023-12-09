@@ -4,7 +4,7 @@ config smartdns
 	option dualstack_ip_selection '1'
 	option prefetch_domain '1'
 	option serve_expired '1'
-	option tcp_server '0'
+	option tcp_server '1'
 	option seconddns_tcp_server '1'
 	option port '6053'
 	option ipv6_server '0'
@@ -18,10 +18,10 @@ config smartdns
 	option speed_check_mode 'ping,tcp:443,tcp:80'
 	option response_mode 'first-ping'
 	option bind_device '1'
-	option cache_persist '1'
+	option cache_persist '0'
 	option resolve_local_hostnames '1'
 	option force_aaaa_soa '1'
-	option force_https_soa '1'
+	option force_https_soa '0'
 	option rr_ttl_max '600'
 	option rr_ttl_reply_max '10'
 	option enable_auto_update '1'
@@ -60,7 +60,7 @@ config download-file
 	option type 'config'
 
 config server
-	option enabled '1'
+	option enabled '0'
 	option server_group 'cn'
 	option name '1'
 	option ip '1.12.12.12'
@@ -72,14 +72,14 @@ config server
 	option type 'tls'
 	option server_group 'cn'
 	option name '2'
-	option enabled '1'
+	option enabled '0'
 	option ip 'dot.pub'
 	option exclude_default_group '1'
 
 config server
 	option server_group 'cn'
 	option name '3'
-	option enabled '1'
+	option enabled '0'
 	option ip 'https://223.6.6.6/dns-query'
 	option type 'https'
 	option exclude_default_group '1'
@@ -89,11 +89,11 @@ config server
 	option type 'tls'
 	option name '4'
 	option ip 'dot.360.cn'
-	option enabled '1'
+	option enabled '0'
 	option exclude_default_group '1'
 
 config server
-	option enabled '1'
+	option enabled '0'
 	option name '5'
 	option ip '119.29.29.29'
 	option type 'udp'
@@ -102,7 +102,7 @@ config server
 	option port '853'
 
 config server
-	option enabled '1'
+	option enabled '0'
 	option type 'tls'
 	option name '7'
 	option server_group 'gfwlist'
@@ -110,7 +110,7 @@ config server
 	option port '853'
 
 config server
-	option enabled '1'
+	option enabled '0'
 	option name '8'
 	option server_group 'gfwlist'
 	option ip 'https://dns.google/dns-query'
@@ -121,10 +121,10 @@ config server
 	option name '9'
 	option ip '1.0.0.1'
 	option server_group 'gfwlist'
-	option enabled '1'
+	option enabled '0'
 
 config server
-	option enabled '1'
+	option enabled '0'
 	option name '10'
 	option ip '9.9.9.11'
 	option type 'tls'
@@ -136,7 +136,7 @@ config server
 	option name '11'
 	option ip '208.67.220.220'
 	option server_group 'gfwlist'
-	option enabled '1'
+	option enabled '0'
 
 config domain-rule-list
 	option enabled '1'
