@@ -46,7 +46,7 @@ define Package/smartdns/conffiles
 /etc/config/smartdns
 /etc/smartdns/address.conf
 /etc/smartdns/blacklist-ip.conf
-/etc/smartdns/custom.conf
+/etc/smartdns/custom
 /etc/smartdns/domain-block.list
 /etc/smartdns/domain-forwarding.list
 /etc/smartdns/up.sh
@@ -59,8 +59,8 @@ define Package/smartdns/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/package/openwrt/files/etc/init.d/smartdns $(1)/etc/init.d/smartdns
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/package/openwrt/address.conf $(1)/etc/smartdns/address.conf
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/package/openwrt/blacklist-ip.conf $(1)/etc/smartdns/blacklist-ip.conf
-	$(INSTALL_CONF) $(CURDIR)/conf/custom.conf $(1)/etc/smartdns/custom.conf
-	$(INSTALL_CONF) $(CURDIR)/conf/smartdns.conf $(1)/etc/config/smartdns
+	$(INSTALL_CONF) $(CURDIR)/conf/custom $(1)/etc/smartdns/custom
+	$(INSTALL_CONF) $(CURDIR)/conf/smartdns $(1)/etc/config/smartdns
 	$(INSTALL_CONF) $(CURDIR)/conf/up.sh $(1)/etc/smartdns/up.sh
 	$(INSTALL_CONF) $(CURDIR)/conf/domain-forwarding.list $(1)/etc/smartdns/domain-forwarding.list
 	$(INSTALL_CONF) $(CURDIR)/conf/domain-block.list $(1)/etc/smartdns/domain-block.list
