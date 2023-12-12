@@ -43,6 +43,7 @@ define Package/smartdns/conffiles
 /etc/smartdns/conf.d/anti-ad-for-smartdns.conf
 /etc/smartdns/domain-set/gfwlist.txt
 /etc/smartdns/domain-set/cn.txt
+/etc/smartdns/domain-set/ipv4list.txt
 /etc/config/smartdns
 /etc/smartdns/address.conf
 /etc/smartdns/blacklist-ip.conf
@@ -60,13 +61,14 @@ define Package/smartdns/install
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/package/openwrt/address.conf $(1)/etc/smartdns/address.conf
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/package/openwrt/blacklist-ip.conf $(1)/etc/smartdns/blacklist-ip.conf
 	$(INSTALL_CONF) $(CURDIR)/conf/custom.conf $(1)/etc/smartdns/custom.conf
-	$(INSTALL_CONF) $(CURDIR)/conf/smartdns $(1)/etc/config/smartdns
+	$(INSTALL_CONF) $(CURDIR)/conf/smartdns.conf $(1)/etc/config/smartdns
 	$(INSTALL_CONF) $(CURDIR)/conf/up.sh $(1)/etc/smartdns/up.sh
 	$(INSTALL_CONF) $(CURDIR)/conf/domain-forwarding.list $(1)/etc/smartdns/domain-forwarding.list
 	$(INSTALL_CONF) $(CURDIR)/conf/domain-block.list $(1)/etc/smartdns/domain-block.list
 	$(INSTALL_CONF) $(CURDIR)/conf/conf.d/anti-ad-for-smartdns.conf $(1)/etc/smartdns/conf.d/anti-ad-for-smartdns.conf
 	$(INSTALL_CONF) $(CURDIR)/conf/domain-set/gfwlist.txt $(1)/etc/smartdns/domain-set/gfwlist.txt
 	$(INSTALL_CONF) $(CURDIR)/conf/domain-set/cn.txt $(1)/etc/smartdns/domain-set/cn.txt
+        $(INSTALL_CONF) $(CURDIR)/conf/domain-set/ipv4list.txt $(1)/etc/smartdns/domain-set/ipv4list.txt
 endef
 
 $(eval $(call BuildPackage,smartdns))
