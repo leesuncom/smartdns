@@ -43,7 +43,6 @@ define Package/smartdns/conffiles
 /etc/smartdns/conf.d/anti-ad-for-smartdns.conf
 /etc/smartdns/domain-set/gfwlist.txt
 /etc/smartdns/domain-set/cn.txt
-/etc/smartdns/domain-set/ipv4list.txt
 /etc/config/smartdns
 /etc/smartdns/address.conf
 /etc/smartdns/blacklist-ip.conf
@@ -68,7 +67,6 @@ define Package/smartdns/install
 	$(INSTALL_CONF) $(CURDIR)/conf/conf.d/anti-ad-for-smartdns.conf $(1)/etc/smartdns/conf.d/anti-ad-for-smartdns.conf
 	$(INSTALL_CONF) $(CURDIR)/conf/domain-set/gfwlist.txt $(1)/etc/smartdns/domain-set/gfwlist.txt
 	$(INSTALL_CONF) $(CURDIR)/conf/domain-set/cn.txt $(1)/etc/smartdns/domain-set/cn.txt
-        $(INSTALL_CONF) $(CURDIR)/conf/domain-set/ipv4list.txt $(1)/etc/smartdns/domain-set/ipv4list.txt
 endef
 
 $(eval $(call BuildPackage,smartdns))
