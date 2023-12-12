@@ -44,7 +44,7 @@ define Package/smartdns/conffiles
 /etc/smartdns/domain-set/gfwlist.txt
 /etc/smartdns/domain-set/cn.txt
 /etc/smartdns/domain-set/ipv4list.txt
-/etc/config/smartdns
+/etc/config/smartdns.conf
 /etc/smartdns/address.conf
 /etc/smartdns/blacklist-ip.conf
 /etc/smartdns/custom.conf
