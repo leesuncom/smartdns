@@ -65,7 +65,7 @@ define Package/smartdns/install
 	$(INSTALL_CONF) $(CURDIR)/conf/domain-forwarding.list $(1)/etc/smartdns/domain-forwarding.list
 	$(INSTALL_CONF) $(CURDIR)/conf/domain-block.list $(1)/etc/smartdns/domain-block.list
 	$(INSTALL_CONF) $(CURDIR)/conf/conf.d/anti-ad-for-smartdns.conf $(1)/etc/smartdns/conf.d/anti-ad-for-smartdns.conf
-	$(INSTALL_CONF) $(CURDIR)/conf/domain-set/gfwlist.txt $(1)/etc/smartdns/domain-set/foreign.txt
+	$(INSTALL_CONF) $(CURDIR)/conf/domain-set/foreign.txt $(1)/etc/smartdns/domain-set/foreign.txt
 	$(INSTALL_CONF) $(CURDIR)/conf/domain-set/cn.txt $(1)/etc/smartdns/domain-set/cn.txt
 endef
 
