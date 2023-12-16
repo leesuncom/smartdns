@@ -41,8 +41,8 @@ endef
 
 define Package/smartdns/conffiles
 /etc/smartdns/conf.d/anti-ad-for-smartdns.conf
-/etc/smartdns/domain-set/foreign.txt
-/etc/smartdns/domain-set/cn.txt
+/etc/smartdns/domain-set/proxy-domain-list.conf
+/etc/smartdns/domain-set/direct-domain-list.conf
 /etc/config/smartdns
 /etc/smartdns/address.conf
 /etc/smartdns/blacklist-ip.conf
@@ -65,8 +65,8 @@ define Package/smartdns/install
 	$(INSTALL_CONF) $(CURDIR)/conf/domain-forwarding.list $(1)/etc/smartdns/domain-forwarding.list
 	$(INSTALL_CONF) $(CURDIR)/conf/domain-block.list $(1)/etc/smartdns/domain-block.list
 	$(INSTALL_CONF) $(CURDIR)/conf/conf.d/anti-ad-for-smartdns.conf $(1)/etc/smartdns/conf.d/anti-ad-for-smartdns.conf
-	$(INSTALL_CONF) $(CURDIR)/conf/domain-set/foreign.txt $(1)/etc/smartdns/domain-set/foreign.txt
-	$(INSTALL_CONF) $(CURDIR)/conf/domain-set/cn.txt $(1)/etc/smartdns/domain-set/cn.txt
+	$(INSTALL_CONF) $(CURDIR)/conf/domain-set/proxy-domain-list.conf $(1)/etc/smartdns/domain-set/proxy-domain-list.conf
+	$(INSTALL_CONF) $(CURDIR)/conf/domain-set/direct-domain-list.conf $(1)/etc/smartdns/domain-set/direct-domain-list.conf
 endef
 
 $(eval $(call BuildPackage,smartdns))
