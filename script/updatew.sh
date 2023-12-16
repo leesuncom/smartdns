@@ -12,7 +12,7 @@ curl -sS https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/
 
 cat /tmp/temp_gfwlist1 /tmp/temp_gfwlist2 /tmp/temp_gfwlist3 script/cust_gfwdomain.conf | \
     sort -u | sed 's/^\.*//g' > /tmp/temp_gfwlist
-cat /tmp/temp_gfwlist | sed "s/^full://g;s/^regexp:.*$//g;s/^/nameserver \//g;s/$/\/proxy/g" -i > conf/domain-set/proxy-domain-list.conf
+cat /tmp/temp_gfwlist | sed "s/^/nameserver \//g;s/$/\/proxy/g" -i > conf/domain-set/proxy-domain-list.conf
 
 # Update China IPV4 List
 qqwry="$(curl -kLfsm 5 https://raw.githubusercontent.com/metowolf/iplist/master/data/special/china.txt)"
@@ -26,4 +26,4 @@ accelerated_domains="$(curl -kLfsm 5 https://raw.githubusercontent.com/felixonma
 cust_cndomain="$(cat script/cust_cndomain.conf)"
 domain_list="$accelerated_domains\n$cust_cndomain"
 echo -e "${domain_list}" | sort | uniq |sed -e 's/#.*//g' -e '/^$/d' -e 's/server=\///g' -e 's/\/114.114.114.114//g' | sort -u > /tmp/temp_direct
-cat /tmp/temp_direct | sed "s/^full://g;s/^regexp:.*$//g;s/^/nameserver \//g;s/$/\/proxy/g" -i > conf/domain-set/direct-domain-list.conf
+cat /tmp/temp_direct | sed "s/^/nameserver \//g;s/$/\/proxy/g" -i > conf/domain-set/direct-domain-list.conf
