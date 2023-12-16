@@ -15,7 +15,7 @@ jobs:
           token: ${{ secrets.REPO_TOKEN }}
       - name: Smartdns conf List
         run: |
-          bash script/update.sh
+          bash script/updatew.sh
       - name: Push
         id: list-push
         uses: stefanzweifel/git-auto-commit-action@v4
