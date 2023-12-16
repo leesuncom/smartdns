@@ -31,5 +31,5 @@ accelerated_domains="$(curl -kLfsm 5 https://raw.githubusercontent.com/felixonma
 cust_cndomain="$(cat script/cust_cndomain.conf)"
 domain_list="$accelerated_domains\n$cust_cndomain"
 echo -e "${domain_list}" | sort | uniq |sed -e 's/#.*//g' -e '/^$/d' -e 's/server=\///g' -e 's/\/114.114.114.114//g' | sort -u > /tmp/direct-domain-list.conf
-sed "s/^full://g;s/^regexp:.*$//g;s/^/nameserver \//g;s/$/\/proxy/g" -i /tmp/direct-domain-list.conf
+sed "s/^full://g;s/^regexp:.*$//g;s/^/nameserver \//g;s/$/\/direct/g" -i /tmp/direct-domain-list.conf
 cat /tmp/direct-domain-list.conf > conf/domain-set/direct-domain-list.conf
