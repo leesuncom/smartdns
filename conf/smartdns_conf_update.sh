@@ -1,11 +1,11 @@
 #!/bin/sh
 
 download_files() {
-    curl -o /etc/smartdns/smartdns.conf https://raw.githubusercontent.com/ixmu/smartdns-conf/main/smartdns.conf
-    curl -o /etc/smartdns/hosts.conf https://raw.githubusercontent.com/ixmu/smartdns-conf/main/hosts.conf
-    curl -o /etc/smartdns/blacklist-ip.conf https://raw.githubusercontent.com/ixmu/smartdns-conf/main/blacklist-ip.conf
-    curl -o /etc/smartdns/proxy-domain-list.conf https://raw.githubusercontent.com/ixmu/smartdns-conf/main/proxy-domain-list.conf
-    curl -o /etc/smartdns/direct-domain-list.conf https://raw.githubusercontent.com/ixmu/smartdns-conf/main/proxy-direct-list.conf
+    curl -o /etc/smartdns/custom.conf https://github.com/leesuncom/smartdns/raw/18.06/conf/custom.conf
+    curl -o /etc/smartdns/hosts.conf https://github.com/leesuncom/smartdns/raw/18.06/conf/hosts.conf
+    curl -o /etc/smartdns/blacklist-ip.conf https://github.com/leesuncom/smartdns/raw/18.06/conf/blacklist-ip.conf
+    curl -o /etc/smartdns/domain-set/proxy-domain-list.conf https://github.com/leesuncom/smartdns/raw/18.06/conf/domain-set/proxy-domain-list.conf
+    curl -o /etc/smartdns/domain-set/direct-domain-list.conf https://github.com/leesuncom/smartdns/raw/18.06/conf/domain-set/direct-domain-list.conf
 }
 
 restart_smartdns() {
