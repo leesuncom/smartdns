@@ -14,7 +14,7 @@ cat /tmp/temp_gfwlist1 /tmp/temp_gfwlist2 /tmp/temp_gfwlist3 script/cust_gfwdoma
     sort -u | sed 's/^\.*//g' > /tmp/temp_gfwlist
 cat /tmp/temp_gfwlist | sed -e '/^$/d' > /tmp/proxy-domain-list.conf
 sed "s/^full://g;s/^regexp:.*$//g;s/^/nameserver \//g;s/$/\/proxy/g" -i /tmp/proxy-domain-list.conf
-cat /tmp/proxy-domain-list.conf > conf/domain-set/proxy-domain-list.conf
+cat script/gfw_group.conf /tmp/proxy-domain-list.conf > conf/domain-set/proxy-domain-list.conf
 
 # Update China IPV4 List
 qqwry="$(curl -kLfsm 5 https://raw.githubusercontent.com/metowolf/iplist/master/data/special/china.txt)"
