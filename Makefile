@@ -49,7 +49,7 @@ define Package/smartdns/conffiles
 /etc/smartdns/custom.conf
 /etc/smartdns/domain-block.list
 /etc/smartdns/domain-forwarding.list
-# /etc/smartdns/up.sh
+/etc/smartdns/hosts.sh
 /etc/smartdns/hosts.conf
 endef
 
@@ -62,6 +62,7 @@ define Package/smartdns/install
 	$(INSTALL_CONF) $(PKG_BUILD_DIR)/package/openwrt/blacklist-ip.conf $(1)/etc/smartdns/blacklist-ip.conf
 	$(INSTALL_CONF) $(CURDIR)/conf/custom.conf $(1)/etc/smartdns/custom.conf
 	$(INSTALL_CONF) $(CURDIR)/conf/smartdns.conf $(1)/etc/config/smartdns
+        $(INSTALL_CONF) $(CURDIR)/conf/hosts.sh $(1)/etc/smartdns/hosts.sh
 	$(INSTALL_CONF) $(CURDIR)/conf/hosts.conf $(1)/etc/smartdns/hosts.conf
 	$(INSTALL_CONF) $(CURDIR)/conf/domain-forwarding.list $(1)/etc/smartdns/domain-forwarding.list
 	$(INSTALL_CONF) $(CURDIR)/conf/domain-block.list $(1)/etc/smartdns/domain-block.list
